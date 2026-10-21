@@ -5,3 +5,5 @@ Okay so basically, in this game, food will be flying around the screen except it
 
 So I've been working on the HTML while starting to add some basic CSS which I will eventually work on later. 
 
+I was trying to figure out the CSS but it is getting confusing. So I'll just start some debugging right now for whatever I have, while adding CSS
+
