@@ -9,3 +9,4 @@ I was trying to figure out the CSS but it is getting confusing. So I'll just sta
 
 Okay so I fixed the mistakes in my HTML. Now I will just work on CSS for a bit. 
 
+Fixing the main HTML part a little
