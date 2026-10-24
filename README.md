@@ -14,3 +14,5 @@ Fixing the main HTML part a little
 I FINISHED THE HTML PART AND THE BASIC ELEMENTS OF THE GAMEEEEEEEEEEEEEEE!!!!!!! YAYAYAAYAYAYAYYY
 
 RIght so i finished the game (there is going to be a surprise after you play it, but i still have to work on it.) but before that, for some reason, the game itself isn't working so i gotta fix that. 
+
+omg the fruits aren't floating. I HAVE TO FIX ITTTT AAAAAAAAAAAAA
