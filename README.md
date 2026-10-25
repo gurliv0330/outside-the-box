@@ -32,5 +32,6 @@ I just made the first slide, so congratulate me for that.
 
 update- FINISHED SLIDE 2!!!!!!!
 update- FINISHED SLIDE 3!!!!!!!!
+another update- FINALLY FINSIHED SLIDE 4. WROTE A LOT OF WORDS OF WISDOM (because I'm so smart trust)
 
 
