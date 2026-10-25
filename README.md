@@ -38,4 +38,4 @@ another update- FINALLY FINSIHED SLIDE 4. WROTE A LOT OF WORDS OF WISDOM (becaus
 I FINISHED SLIDE 5!!!! (a pretty small and easy one i guess)
 
 another update- I FINISHED SLIDE 6!!!!!
-
+I FINISHED SLIDE 7!!!!
