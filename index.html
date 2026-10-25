@@ -44,16 +44,16 @@
         let timeLeft = 30;
         let gameInterval = null;
         let spawnInterval = null;
-        let floatInterval = null;
-        let activeFoods = [];
+        let moveInterval = null;
+
 
 
         const scoreDisplay = document.getElementById ('score-display');
         const timerDisplay = document.getElementById ('timer-display');
         const gameArea = document.getElementById ('game-area');
         const dangerBox = document.getElementById('danger-box')
-        const modalScreen = document.getElementById ('modal-screen');
-        const modalTitle = document.getElementByID('modal-title');
+        const modalScreen = document.getElementById('modal-screen');
+        const modalTitle = document.getElementById('modal-title');
         const modalDesc = document.getElementById('modal-desc');
 
         function startGame () {
@@ -61,7 +61,7 @@
             timeLeft = 30;
             scoreDisplay.textContent = score;
             timerDisplay.textContent = timeLeft;
-            activeFoods = [];
+            
 
           /// remove stuff 
           const existingFoods = document.querySelectorAll ('.food-item');
@@ -70,7 +70,7 @@
           clearInterval(gameInterval);
           clearInterval(spawnInterval);
           clearInterval(moveInterval);
-
+        
         //hide
         modalScreen.classList.add('hidden');
 
@@ -88,15 +88,14 @@
         //Spawn food
 
         spawnInterval = setInterval(spawnFood, 800);
-        floatInterval = setInterval (moveFoods, 30);
+        moveInterval = setInterval (moveFoods, 30);
 
         spawnFood();
     }
 
-
     function spawnFood() {
-
-        if (activeFoods.length >= 12) return;
+        const currentFoods = document.querySelectorAll('.food-item')
+        if (currentFoods.length >= 12) return;
 
         const areaRect = gameArea.getBoundingClientRect();
         const boxRect = dangerBox.getBoundingClientRect();
@@ -107,6 +106,7 @@
 
         // pick random coordinates but like outside the box because the box is danger. hehehehehe
         while (insideBox && attempts < 100) {
+            attempts++;
             x = Math.random() * (areaRect.width - 50);
             y = Math.random() * (areaRect.height - 50);
 
@@ -116,7 +116,7 @@
 
             // stay awy from boxxxxx
             const isOverlapping = (
-                absoluteX +45 > boxRect.left &&
+                absoluteX + 45 > boxRect.left &&
                 absoluteX < boxRect.right &&
                 absoluteY + 45 > boxRect.top &&
                 absoluteY < boxRect.bottom
@@ -148,16 +148,21 @@
 
         foodBtn.vx = (Math.random() - 0.5) * 3;
         foodBtn.vy = (Math.random() - 0.5) * 3;
-        if (Math.abs(foodBtn.vy) < 0.8) foodBtn.vx = 1.2;
+        if (Math.abs(foodBtn.vx) < 0.8) foodBtn.vx = 1.2;
         if (Math.abs(foodBtn.vy) < 0.8) foodBtn.vy = 1.2;
 
 
-        foodBtn.onlick = function () {
+
+
+
+        foodBtn.onclick = function () {
             score += 1;
             scoreDisplay.textContent = score;
             foodBtn.remove ();
 
         };
+
+        gameArea.appendChild(foodBtn);
 
     }
 
@@ -181,19 +186,32 @@
             const absX = areaRect.left + x;
             const absY = areaRect.top + y;
 
-            if (
+
+
+            const isTouchingBox = (
                 absX + 45 > boxRect.left &&
                 absX < boxRect.right &&
                 absY + 45 > boxRect.top &&
                 absY < boxRect.bottom
-            ) {
-                food.vx *= -1;
-                food.vy *= -1;
+
+            );
+
+            if (isTouchingBox) {
+                food.remove();
+                return;
+
             }
 
             food.style.left = x + 'px';
             food.style.top = y + 'px';
+        
+        
+
         });
+           
+              
+             
+        
     }
 
     function endGame() {
@@ -205,21 +223,7 @@
         modalDesc.textContent = " YOUR FINAL SCOREEE ISSSS" + score;
         modalScreen.classList.remove('hidden');
     }
-
-        
-
-           
-            
-
-
-
-
-
-
-
-
-
-    </script>
+</script>
 
 
 
@@ -230,3 +234,4 @@
 
     </body>
 </html>
+
