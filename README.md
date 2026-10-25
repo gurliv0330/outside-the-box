@@ -46,3 +46,5 @@ So I finished styling the slides and stuff. Now i'll work on making it actually 
 right so i finished that part. Now the only problem is that it is not working properly and honestly it is 4:30 am. AAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 okay so now I will just fix any problems it has, and honestly fix the design a bit because it bores me.
+
+i fixed all the problems and the design which is peak so YAYYYY
