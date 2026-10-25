@@ -41,3 +41,4 @@ another update- I FINISHED SLIDE 6!!!!!
 I FINISHED SLIDE 7!!!!
 
 I FINISHED SLIDE 8 WHICH IS THE FINAL ONEEEE!!!! SO NOW IMA DESIGN THEM!!!!
+So I finished styling the slides and stuff. Now i'll work on making it actually work.
