@@ -42,3 +42,5 @@ I FINISHED SLIDE 7!!!!
 
 I FINISHED SLIDE 8 WHICH IS THE FINAL ONEEEE!!!! SO NOW IMA DESIGN THEM!!!!
 So I finished styling the slides and stuff. Now i'll work on making it actually work.
+
+right so i finished that part. Now the only problem is that it is not working properly and honestly it is 4:30 am. AAAAAAAAAAAAAAAAAAAAAAAAAAA
