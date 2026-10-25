@@ -16,3 +16,8 @@ I FINISHED THE HTML PART AND THE BASIC ELEMENTS OF THE GAMEEEEEEEEEEEEEEE!!!!!!!
 RIght so i finished the game (there is going to be a surprise after you play it, but i still have to work on it.) but before that, for some reason, the game itself isn't working so i gotta fix that. 
 
 omg the fruits aren't floating. I HAVE TO FIX ITTTT AAAAAAAAAAAAA
+
+
+So the game officially works, which is absolutely insane. So now I'm going to work on the secret part. (still trying to figure it out) so I got this trust. theres only like 10 hours left I'm gusseing to work but I'm not sure because of timezones. 
+<img width="1365" height="767" alt="Screenshot 2026-10-25 233507" src="https://github.com/user-attachments/assets/fe7d7bad-3e2d-446f-9ba9-3ef9fc2deae5" />
+
