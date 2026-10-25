@@ -30,3 +30,5 @@ I just made the first slide, so congratulate me for that.
 
 <img width="1365" height="767" alt="Screenshot 2026-10-26 003424" src="https://github.com/user-attachments/assets/9d0b8e3f-e8ac-433c-94a3-4d032e266bd5" />
 
+FINISHED SLIDE 2!!!!!!!
+
