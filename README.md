@@ -39,3 +39,5 @@ I FINISHED SLIDE 5!!!! (a pretty small and easy one i guess)
 
 another update- I FINISHED SLIDE 6!!!!!
 I FINISHED SLIDE 7!!!!
+
+I FINISHED SLIDE 8 WHICH IS THE FINAL ONEEEE!!!! SO NOW IMA DESIGN THEM!!!!
