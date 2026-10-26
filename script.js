@@ -1,0 +1,225 @@
+const foods = ['🍫', '🧁', '🍦', '🍔', '🍟', ' 🍜', '🍩'];
+
+        let score = 0;
+        let timeLeft = 30;
+        let gameInterval = null;
+        let spawnInterval = null;
+        let moveInterval = null;
+
+
+
+        const scoreDisplay = document.getElementById ('score-display');
+        const timerDisplay = document.getElementById ('timer-display');
+        const gameArea = document.getElementById ('game-area');
+        const dangerBox = document.getElementById('danger-box')
+        const modalScreen = document.getElementById('modal-screen');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-desc');
+
+
+        const secretInviteBtn = document.getElementById('secret-invite-btn');
+        const secretSlidesOverlay = document.getElementById('secret-slides-overlay');
+
+        function startGame () {
+            score = 0;
+            timeLeft = 30;
+            scoreDisplay.textContent = score;
+            timerDisplay.textContent = timeLeft;
+
+            secretInviteBtn.classList.add('hidden');
+
+            const existingFoods = document.querySelectorAll('.food-item');
+            existingFoods.forEach(item => item.remove());
+
+
+            
+
+          
+
+          clearInterval(gameInterval);
+          clearInterval(spawnInterval);
+          clearInterval(moveInterval);
+        
+        //hide
+        modalScreen.classList.add('hidden');
+
+        //TIMERRRRRR
+        gameInterval = setInterval(function () {
+            timeLeft--;
+            timerDisplay.textContent = timeLeft;
+
+            if (timeLeft <= 0) {
+                endGame();
+            }
+
+        }, 1000);
+
+        //Spawn food
+
+        spawnInterval = setInterval(spawnFood, 800);
+        moveInterval = setInterval (moveFoods, 30);
+
+        spawnFood();
+    }
+
+    function spawnFood() {
+        const currentFoods = document.querySelectorAll('.food-item')
+        if (currentFoods.length >= 12) return;
+
+        const areaRect = gameArea.getBoundingClientRect();
+        const boxRect = dangerBox.getBoundingClientRect();
+
+        let x, y;
+        let insideBox = true;
+        let attempts = 0;
+
+        // pick random coordinates but like outside the box because the box is danger. hehehehehe
+        while (insideBox && attempts < 100) {
+            attempts++;
+            x = Math.random() * (areaRect.width - 50);
+            y = Math.random() * (areaRect.height - 50);
+
+
+            const absoluteX = areaRect.left + x;
+            const absoluteY = areaRect.top + y;
+
+            // stay awy from boxxxxx
+            const isOverlapping = (
+                absoluteX + 45 > boxRect.left &&
+                absoluteX < boxRect.right &&
+                absoluteY + 45 > boxRect.top &&
+                absoluteY < boxRect.bottom
+
+            );
+
+            if (!isOverlapping) {
+                insideBox = false;
+
+            }
+
+            
+        }
+
+        if (insideBox) return;
+
+
+        //Create food
+        const foodBtn = document.createElement('button');
+        foodBtn.className = 'food-item';
+
+        // choosing what food item
+
+        const randomFood = foods[Math.floor(Math.random() * foods.length)];
+        foodBtn.textContent = randomFood;
+        
+        foodBtn.style.left = x + 'px';
+        foodBtn.style.top = y + 'px';
+
+        foodBtn.vx = (Math.random() - 0.5) * 3;
+        foodBtn.vy = (Math.random() - 0.5) * 3;
+        if (Math.abs(foodBtn.vx) < 0.8) foodBtn.vx = 1.2;
+        if (Math.abs(foodBtn.vy) < 0.8) foodBtn.vy = 1.2;
+
+
+
+
+
+        foodBtn.onclick = function () {
+            score += 1;
+            scoreDisplay.textContent = score;
+            foodBtn.remove ();
+
+        };
+
+        gameArea.appendChild(foodBtn);
+
+    }
+
+
+    function moveFoods() {
+        const activeFoods = document.querySelectorAll('.food-item');
+        const areaRect = gameArea.getBoundingClientRect();
+        const boxRect = dangerBox.getBoundingClientRect();
+
+        activeFoods.forEach(food => {
+            let x = parseFloat(food.style.left) || 0;
+            let y = parseFloat(food.style.top) || 0;
+ 
+            x += food.vx;
+            y += food.vy;
+
+            if (x <= 0 || x >= areaRect.width - 45) food.vx *= -1;
+            if (y <= 0 || y >= areaRect.height - 45) food.vy *= -1;
+
+
+            const absX = areaRect.left + x;
+            const absY = areaRect.top + y;
+
+
+
+            const isTouchingBox = (
+                absX + 45 > boxRect.left &&
+                absX < boxRect.right &&
+                absY + 45 > boxRect.top &&
+                absY < boxRect.bottom
+
+            );
+
+            if (isTouchingBox) {
+                food.remove();
+                return;
+
+            }
+
+            food.style.left = x + 'px';
+            food.style.top = y + 'px';
+        
+        
+
+        });
+           
+              
+             
+        
+    }
+
+    function endGame() {
+        clearInterval(gameInterval);
+        clearInterval(spawnInterval);
+        clearInterval(moveInterval);
+
+        modalTitle.textContent = "GAMEEEE OVERRRRR!!";
+        modalDesc.textContent = " YOUR FINAL SCOREEE ISSSS: " + score;
+
+        if (score >= 18) {
+            secretInviteBtn.classList.remove('hidden');
+
+        } else {
+            secretInviteBtn.classList.add('hidden');
+        }
+
+        modalScreen.classList.remove('hidden');
+    }
+
+
+    function goToSlide(slideNumber) {
+        modalScreen.classList.add('hidden');
+
+        secretSlidesOverlay.classList.remove('hidden');
+
+        const allSlides = document.querySelectorAll('.slide-content');
+        allSlides.forEach(slide => slide.classList.add('hidden'));
+
+        const targetSlide = document.getElementById('slide-' + slideNumber);
+        if (targetSlide) {
+            targetSlide.classList.remove('hidden');
+        }
+    }
+
+    function resetToGame() {
+        secretSlidesOverlay.classList.add('hidden');
+        modalTitle.textContent = "OUTSIDE THE BOXXX!!!!!";
+        modalDesc.textContent = "Click as many floating foods as you can before they hit the danger box and disappear";
+        secretInviteBtn.classList.add('hidden');
+        modalScreen.classList.remove('hidden');
+    }
