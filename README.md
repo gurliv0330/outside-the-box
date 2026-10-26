@@ -47,4 +47,6 @@ right so i finished that part. Now the only problem is that it is not working pr
 
 okay so now I will just fix any problems it has, and honestly fix the design a bit because it bores me.
 
+I finished it a while ago, I'm just having problems deploying it
+
 i fixed all the problems and the design which is peak so YAYYYY
