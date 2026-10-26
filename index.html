@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width", initial-scale="1.0">
         <title>OUTSIDE THE BOX</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap">
         <link rel="stylesheet" href="style.css">
         
 
@@ -184,13 +184,15 @@
             scoreDisplay.textContent = score;
             timerDisplay.textContent = timeLeft;
 
-        secretInviteBtn.classList.add('hidden');
+            secretInviteBtn.classList.add('hidden');
+
+            constexistingFoods = document.querySelectorAll('.food-item');
+            existingFoods.forEach(item => item.remove());
+
 
             
 
-          /// remove stuff 
-          const existingFoods = document.querySelectorAll ('.food-item');
-          existingFoods.forEach (item => item.remove ());
+          
 
           clearInterval(gameInterval);
           clearInterval(spawnInterval);
@@ -359,7 +361,7 @@
 
 
     function goToSlide(slideNumber) {
-        modalScreen.classList.remove('hidden');
+        modalScreen.classList.add('hidden');
 
         secretSlidesOverlay.classList.remove('hidden');
 
@@ -393,3 +395,4 @@
 
     </body>
 </html>
+
