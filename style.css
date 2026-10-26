@@ -1,0 +1,323 @@
+body {
+    background-color: #040130;
+    color: #4dc3f1;
+    border-color: #9350eb;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: 3px dashed;
+    padding-top: 18px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 18px;
+    font-family: 'Fredoka', sans-serif;
+    min-height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    touch-action: manipulation;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+
+
+
+
+}
+
+*{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+font-family: 'Fredoka', Arial, sans-serif;
+}
+
+
+#space-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    cursor: pointer;
+    pointer-events: none;
+    background-color: #050225;
+
+}
+header {
+    position: relative;
+    z-index: 20;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #100833;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(34, 211, 238, 0.25);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    
+
+}
+
+.hud-item {
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(31, 4, 61, 0.733);
+
+}
+
+#score-display {
+
+    color: #f361e7;
+    text-shadow: 0 0 12px rgba(156, 32, 146, 0.7);
+    
+}
+
+#timer-display {
+    color: #6ca1f0;
+    text-shadow: 0 0 12px rgba(38, 78, 138, 0.7);
+
+}
+
+main#game-area{
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 10;
+
+}
+
+#danger-box{
+    width: 220px;
+    height: 220px;
+    background-color: #5e0707;
+    border: 3px solid;
+    border-color: #ff5252;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    z-index: 10;
+    user-select: none;
+    pointer-events: none;
+    box-shadow: 0 0 30px rgba(255, 82, 82, 0.4), inset 0 0 20px rgba(0,0,0,0.5);
+    animation: dangerPulse 2s infinite alternate;
+
+
+}
+
+
+
+
+#danger-box h2{
+    color: #c55858;
+    font-size: 18px;
+    margin-bottom: 8px;
+    text-shadow: #791e1e;
+
+
+}
+
+#danger-box p {
+    color: #816b6b;
+    font-size: 12px;
+
+}
+
+.food-item {
+    position: absolute;
+    font-size: 35px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    z-index: 20;
+    line-height: 1;
+    
+    
+
+
+}
+
+.food-item:active{
+    transform: scale(1.3);
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+
+}
+
+.modal {
+   background-color: #05032c;
+   border: 2px solid;
+   border-color: #4ab7e2;
+   padding-top: 30px;
+   padding-left: 30px;
+   padding-right: 30px;
+   padding-bottom: 30px;
+   border-top-right-radius: 12px;
+   border-top-left-radius: 12px;
+   border-bottom-left-radius: 12px;
+   border-bottom-right-radius: 12px;
+   text-align: center;
+   max-width: 420px;
+   width: 90%;
+   max-height: 85vh;
+   overflow-y: auto;
+   box-shadow: 0 0 30px rgba(147, 80, 235, 0.4);
+
+
+   
+}
+
+.modal h1 {
+    margin-bottom: 10px;
+    margin-top: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+    color: #e78686;
+    font-size: 24px;
+}
+
+.modal p {
+    margin-bottom: 20px;
+    color: #c71bfc;
+    font-size: 14px;
+    line-height: 1.4;
+
+}
+
+.start-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #006eff;
+    color: #fff;
+    border: 1px solid;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+
+}
+
+.start-btn:hover {
+    background-color: #0dbad8;
+    transform: scale(1.03);
+
+    
+}
+
+
+.secret-btn {
+    background-color: #9554e4;
+    border-color: #a73f9e;
+    margin-top: 10px;
+    box-shadow: 0 0 15px rgba(144, 10, 161, 0.733);
+
+    
+}
+
+.secret-btn:hover {
+    background-color: #c71bfc;
+
+}
+
+.option-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+
+}
+
+.option-btn {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-weight: 600;
+    background-color: #100738;
+    color: #4bb9e4;
+    border: 2px dashed;
+    border-color: #f09bda;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+
+}
+
+.option-btn:hover {
+    background-color: #251361;
+    border-color: #f3516e;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(92, 52, 129, 0.795);
+}
+.poem-text {
+    font-style: italic;
+    color: #b881d6 !important;
+    white-space: pre-line;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    background: rgba(54, 8, 105, 0.733);
+    padding: 15px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    text-align: left;
+    border: 3px solid #eb7bd8;
+
+
+}
+
+
+
+
+
+
+
+.hidden {
+    display: none !important;
+}
